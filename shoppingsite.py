@@ -49,11 +49,19 @@ def show_melon(melon_id):
 
     Show all info about a melon. Also, provide a button to buy that melon.
     """
-
-    melon = melons.get_by_id("meli")
+    
+    # melon = request.melon_types.get_by_id(melon_id)
+    melon = melons.get_by_id(melon_id)
     print(melon)
     return render_template("melon_details.html",
                            display_melon=melon)
+                           
+# def get_by_id(melon_id):
+#     """Return a melon, given its ID."""
+
+#     # This relies on access to the global dictionary `melon_types`
+
+#     return melon_types[melon_id]
 
 
 @app.route("/cart")
