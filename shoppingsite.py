@@ -117,8 +117,8 @@ def add_to_cart(melon_id):
     flash(f"Added {melon_id} to Cart")
     # - redirect the user to the cart page
 
-    return session["melon_cart"]
-    # return redirect("/cart")
+    # return session["melon_cart"]
+    return redirect("/cart")
 
 
 @app.route("/login", methods=["GET"])
