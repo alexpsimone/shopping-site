@@ -6,7 +6,7 @@ put melons in a shopping cart.
 Authors: Joel Burton, Christian Fernandez, Meggie Mahnken, Katie Byers.
 """
 
-from flask import Flask, render_template, redirect, flash, session
+from flask import Flask, render_template, request, redirect, flash, session
 import jinja2
 
 import melons
@@ -71,10 +71,17 @@ def show_shopping_cart():
     # TODO: Display the contents of the shopping cart.
 
     # The logic here will be something like:
-    #
+    shopping_cart = session["melon_cart"]
     # - get the cart dictionary from the session
+    melon_list = []
+    total = 0
+    for melon_id in shopping_cart:
+        if Melon.melon_type melon_id
+        return melon id price 
+
     # - create a list to hold melon objects and a variable to hold the total
     #   cost of the order
+    # shopping_cart.items() = [(melon1, qty1) , (melon2, qty2)...]
     # - loop over the cart dictionary, and for each melon id:
     #    - get the corresponding Melon object
     #    - compute the total cost for that type of melon
@@ -104,15 +111,15 @@ def add_to_cart(melon_id):
     #
     # - check if a "cart" exists in the session, and create one (an empty
     #   dictionary keyed to the string "cart") if not
-    session["melon_cart"] = session.get("melon_cart", {})
-    print(session)
-    
-    session["melon_cart"][melon_id] = (session["melon_cart"]).get(melon_id, 0) + 1 
-    # for letter in phrase:
-    #     letter_counts[letter] = letter_counts.get(letter, 0) + 1
-    print(session)
     # - check if the desired melon id is the cart, and if not, put it in
     # - increment the count for that melon id by 1
+
+    # session["melon_cart"] = session.get("melon_cart", {})
+    cart = session.get("melon_cart", {})
+    # session["melon_cart"][melon_id] = (session["melon_cart"]).get(melon_id, 0) + 1
+    cart[melon_id] = cart.get(melon_id, 0) + 1
+
+
     # - flash a success message
     flash(f"Added {melon_id} to Cart")
     # - redirect the user to the cart page
