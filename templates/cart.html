@@ -17,14 +17,14 @@
             <tr>
                 <td>{{ item.common_name }}</td>
                 <td>{{ item.qty }}</td>
-                <td>{{ item.price }}</td>
-                <td>{{ item.this_melon_cost}}</td>
+                <td>${{ item.price }}0</td>
+                <td>${{ item.this_melon_cost}}0</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <h3>Total: $27.00</h3>
+    <h3>Total: ${{ total_cost }}0</h3>
 
     <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
 
